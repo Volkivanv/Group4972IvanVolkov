@@ -9,3 +9,4 @@ if (day > 0 && day < 8)
     Console.WriteLine("Неверный ввод");
 }
 
+// string outDayOfWeek = System.Globalization.CultureInfo.GetCultureInfo("ru-Ru").DateTimeFormat.GetDayName((DayOfWeek)Enum.GetValues(typeof(DayOfWeek)).GetValue(dayNum));
