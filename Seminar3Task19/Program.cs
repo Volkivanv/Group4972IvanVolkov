@@ -1,25 +1,32 @@
-﻿
-//System.Math;
+﻿// №19 Напишите программу, которая принимает на вход пятизначное 
+// число и проверяет, является ли оно палиндромом.
+// 14212 -> нет
+// 23432 -> да
+// 12821 -> да
+// * Сделать вариант через СЛОВАРЬ четырехзначных палиндромов
+ Dictionary<int, int> palindromFour(){
+    Dictionary<int, int> dict = new Dictionary<int, int>(); 
+    for(int i = 10; i < 100; i++){
+        int j = i % 10 * 10 + i / 10 %10;
+        dict.Add(i,j);
+    }
+    return dict;
+ }
 
-double ReadData(string msg) // вводим данные
+ bool isPalindrom(int num)
+ {
+    Dictionary<int,int> dictPal = palindromFour();
+     if(num%100 == dictPal[num/1000]) return true;
+     return false;
+ }
+
+int ReadData(string msg) // вводим данные
 {
     Console.WriteLine(msg);
-    Double value = int.Parse(Console.ReadLine() ?? "0");
-    return value;
+    int num = int.Parse(Console.ReadLine() ?? "0");
+    return num;
 }
 
-double distance(double x1, double y1, double x2, double y2)
-{
-    return Math.Sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-}
+int number = ReadData("Введите пятизначное число");
+Console.WriteLine(isPalindrom(number));
 
-void PrintResult(string msg) // печатаем результат
-{
-    Console.WriteLine(msg);
-}
-
-double x1 = ReadData("Введите x1: ");
-double x2 = ReadData("Введите X2: ");
-double y1 = ReadData("Введите y1: ");
-double y2 = ReadData("Введите y2: ");
-PrintResult("Расстояние: " + distance(x1, y1, x2, y2));
