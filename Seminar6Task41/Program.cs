@@ -16,10 +16,10 @@ string InputExpression(string msg) //ввод строки
 
 double[] ParseExpression(string str) // парсинг строки на числа с помощью регулярного выражения
 {
-    double[] result = Regex.Matches(str, @"([-+]?\d+(?:\.\d+)?)")
+    double[] result = Regex.Matches(str, @"([-+]?\d+(?:\,\d+)?)")
     .OfType<Match>()
     .Select(m => double.Parse(m.Groups[1].Value, 
-        CultureInfo.GetCultureInfo("en-EN")) * (m.Groups[1].Value.StartsWith("0.0") ? 10 : 1))
+        CultureInfo.GetCultureInfo("ru-RU")) * (m.Groups[1].Value.StartsWith("0,0") ? 10 : 1))
     .ToArray();
 
     return result;
@@ -45,7 +45,7 @@ void OutPutArray(double[] arr) // вывод массива
 
 
 string expression = InputExpression("Введите строку. "+ 
-"Для чисел, в качестве десятичного разделителя применяйте точку!");
+"Для чисел, в качестве десятичного разделителя применяйте запятую!");
 double[] values = ParseExpression(expression);
 Console.WriteLine("Массив из введенных чисел: ");
 OutPutArray(values);
