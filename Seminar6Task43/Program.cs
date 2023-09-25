@@ -36,6 +36,21 @@ bool Parallel(Line[] lines)
     return false;
 }
 
+Point Intersection(Line line1, Line line2)
+{
+    Point point = new Point();
+
+    point.x = (line2.b - line1.b) / (line1.k - line2.k);
+    point.y = (line1.k*line2.b - line2.k*line1.b) / (line1.k - line2.k);
+    return point;
+}
+
+Point[] GetVertexes(Line[] lines)
+{
+    Point[] points = new Point[0];
+    return points;
+}
+
 Line[] lines = inputLines();
 Console.WriteLine(lines[1].k+" "+Parallel(lines));
 
@@ -44,4 +59,10 @@ public class Line
 {
     public double k;
     public double b;
+}
+
+public class Point
+{
+    public double x;
+    public double y;
 }
