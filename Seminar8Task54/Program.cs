@@ -88,4 +88,4 @@ Console.WriteLine("Исходный массив:");
 Print2DArray(matrix); // выводим исходный массив
 Console.WriteLine("Массив с отсортированными строками:");
 MatrixRowSort(matrix); //производим сортировку по рядам
-//Print2DArray(matrix); // выводим отсортированный массив
+Print2DArray(matrix); // выводим отсортированный массив
